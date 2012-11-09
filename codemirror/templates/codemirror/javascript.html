@@ -1,7 +1,11 @@
 <script type="text/javascript">
-    CodeMirror.fromTextArea(document.getElementById({{ id }}), {
+    window.{{ id }} = CodeMirror.fromTextArea(document.getElementById("{{ id }}"), {
         mode: {{ mode }},
         theme: {{ theme }},
         {{ additional_configuration }},
     });
+    {{ additional_js }}
 </script>
+<style type="text/css">
+	{{ additional_css }}
+</style>
