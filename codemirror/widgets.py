@@ -15,7 +15,7 @@ from django.utils.safestring import mark_safe
 CODEMIRROR_PATH = getattr(settings, 'CODEMIRROR_PATH', 'codemirror')
 if CODEMIRROR_PATH.endswith('/'):
     CODEMIRROR_PATH = CODEMIRROR_PATH[:-1]
-CODEMIRROR_DEFAULT_MODE = getattr(settings, 'CODEMIRROR_DEFAULT_MODE', '')
+CODEMIRROR_DEFAULT_MODE = getattr(settings, 'CODEMIRROR_DEFAULT_MODE', 'htmlmixed')
 CODEMIRROR_DEFAULT_THEME = getattr(settings, 'CODEMIRROR_DEFAULT_THEME', 'default')
 
 
@@ -168,3 +168,4 @@ class AdminHTMLEditor(AdminCodeMirrorTextareaWidget):
         kwargs['mode'] = ["xml", "css", "javascript", "htmlmixed"]
         kwargs['theme'] = ["xml", "js", "css"]
         super(AdminHTMLEditor, self).__init__(*args, **kwargs)
+
