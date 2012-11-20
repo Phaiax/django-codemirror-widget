@@ -89,9 +89,25 @@ class CodeMirrorTextarea(forms.Textarea):
                     # After Changing mode or utils or theme you should call
                     self.fields['file_content'].widget.refresh_media()
             * - - - - - - - - - - - - - - - - - - - - - - - - - - - -TEMPATE *
-            Use this in your < head > tags to include the needed media. Use { % block % }.
+            Use this in your < head > tags to include the needed media. Maybe use {% block %}.
             {{ form.media.js }}
             {{ form.media.css }}
+            * - - - - - - - - - - - - - - - - - - - - - - - - - - USE IN ADMIN *
+            # With this code, you can enable the CodeMirrorWidget for each field 
+            # in particular
+            class SlideAdminForm(forms.ModelForm):
+                class Meta:
+                    model = Slide
+                    cmconfig = {'theme':'ambiance', 'utils' : ['search', 'searchcursor', 'dialog', 'overlay', 'match-highlighter'],
+                               'additional_configuration': {'lineNumbers': 'true', 'lineWrapping': 'true', 'autofocus': 'true',
+                                                         'indentUnit': '4' }}
+                    widgets = {
+                        'scriptcode': CodeMirrorTextarea(**cmconfig),
+                    }
+            
+            class SlideAdmin(admin.ModelAdmin):
+                form=SlideAdminForm
+ 
             * - - - - - - - - - - - - - - - - - - - - - - - - - - - -END *
 
         """

@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 #
 # Author:       Alisue
-# Last Change:  18-Mar-2011.
+# Last Change:  13-Nov-2012.
 #
 from setuptools import setup, find_packages
 
-version = "0.2.0"
+version = "2.35.0" # Now uses codemirror-Version + sub-version for django-c..-m..
+codemirror_version = "2.35"
 
 def read(filename):
     import os.path
@@ -24,8 +25,8 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
     ],
     keywords = "django widget textarea codemirror",
-    author = "Alisue",
-    author_email = "lambdalisue@hashnote.net",
+    author = "Alisue,Phaiax",
+    author_email = "lambdalisue@hashnote.net,phaiax@invisibletower.de",
     url=r"https://github.com/lambdalisue/django-codemirror-widget",
     download_url = r"https://github.com/lambdalisue/django-codemirror-widget/tarball/master",
     license = 'BSD',
